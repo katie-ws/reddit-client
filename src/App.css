@@ -43,9 +43,9 @@ h1 .highlight {
 
 .App-results {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 69% 29%;
   align-items: center;
-  padding: 10rem 0.66rem 0;
+  padding: 10rem 2% 0;
 }
 
 @media only screen and (max-width: 800px) {
