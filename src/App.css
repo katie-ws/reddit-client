@@ -26,6 +26,7 @@ h1 .highlight {
   height: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: black;
+  background-color: #f6f6f6;
 }
 
 .App-header {
@@ -37,11 +38,12 @@ h1 .highlight {
   border-bottom: 2px solid #FF4500;
   background-color: #FF4500;
   position: fixed;
+  height: 7rem;
 }
 
 .App-results {
   display: grid;
   grid-template-columns: 75% 25%;
   justify-content: space-between;
-  padding: 8rem 17%;
+  padding: 10rem 17%;
 }
