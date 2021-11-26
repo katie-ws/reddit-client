@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Subreddits.css';
-import { getSubReddits } from './subRedditsSlice';
-import { useEffect } from 'react';
+import { getSubReddits, selectSubReddits } from './subRedditsSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSubReddits } from './subRedditsSlice';
-
 import {Subreddit} from '../Subreddit/Subreddit';
 
 export const Subreddits = () => {
