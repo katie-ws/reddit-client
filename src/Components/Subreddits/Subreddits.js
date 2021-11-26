@@ -12,12 +12,14 @@ export const Subreddits = () => {
     useEffect(() => {
         dispatch(getSubReddits());
     }, [dispatch]);
+
     const subReddits = useSelector(selectSubReddits);
+    
     console.log(subReddits);
     return (
         <div className="Subreddits">
             <h2>Subreddits</h2>
-            
+
             <h3>{subReddits[0].title}</h3>  
         </div>
     )
