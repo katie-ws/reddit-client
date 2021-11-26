@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSubReddits } from './subRedditsSlice';
 
+import {Subreddit} from '../Subreddit/Subreddit';
 
 export const Subreddits = () => {
     const dispatch = useDispatch();
@@ -18,9 +19,8 @@ export const Subreddits = () => {
     console.log(subReddits);
     return (
         <div className="Subreddits">
-            <h2>Subreddits</h2>
-
-            <h3>{subReddits[0].title}</h3>  
+            <h2>Subreddits</h2>  
+            <Subreddit />
         </div>
     )
 };
