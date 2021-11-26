@@ -19,8 +19,15 @@ export const Subreddits = () => {
     console.log(subReddits);
     return (
         <div className="Subreddits">
-            <h2>Subreddits</h2>  
-            <Subreddit />
+            <h2>Subreddits</h2>
+            <ul>
+                {subReddits.map((subreddit) =>
+                    <Subreddit
+                        icon={subreddit.icon_img}
+                        title={subreddit.display_name}
+                    />
+                )}
+            </ul>
         </div>
     )
 };

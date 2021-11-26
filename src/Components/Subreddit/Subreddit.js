@@ -1,11 +1,23 @@
 import React from 'react';
+import './Subreddit.css';
 
-export const Subreddit = () => {
+const clickResponse = (e) => {
+    e.preventDefault();
+
+};
+
+export const Subreddit = (props) => {
     return (
         <ul>
-            <li>
-                Subreddit data
-            </li>
+            <button 
+                className="subreddit-button"
+                onClick={clickResponse}
+            >
+                <li>
+                    <img className="iconImage" src={props.icon} />
+                    {props.title}
+                </li>
+            </button>
         </ul>
     )
 };
