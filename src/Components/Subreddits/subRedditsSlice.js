@@ -5,7 +5,6 @@ export const getSubReddits = createAsyncThunk(
     async () => {
         const data = await fetch("https://www.reddit.com/subreddits/popular.json");
         const json = await data.json();
-        console.log(json);
         return json.data.children.map((subReddit) => subReddit.data);
     }
 );

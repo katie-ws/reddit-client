@@ -13,15 +13,19 @@ export const Subreddits = () => {
 
     const subReddits = useSelector(selectSubReddits);
     
-    console.log(subReddits);
+    // console.log(subReddits);
+    // console.log(subReddits[0].url);
+
     return (
         <div className="Subreddits">
             <h2>Subreddits</h2>
             <ul>
-                {subReddits.map((subreddit) =>
+                {subReddits.map((subreddit, index) =>
                     <Subreddit
                         icon={subreddit.icon_img}
                         title={subreddit.display_name}
+                        index={index}
+                        url={subreddit.url}
                     />
                 )}
             </ul>
