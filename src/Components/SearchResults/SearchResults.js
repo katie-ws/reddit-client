@@ -24,6 +24,7 @@ export const SearchResults = () => {
                         upvotes={thread.ups}
                         image={thread.url}
                         author={thread.author}
+                        time={thread.created_utc}
                         num_comments={thread.num_comments}
                     />
                 )}
