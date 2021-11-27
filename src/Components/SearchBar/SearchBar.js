@@ -11,11 +11,7 @@ export const SearchBar = () => {
     let handleSubmit = (e) => {
         e.preventDefault();
         let addR = `/r/${searchTerm}`;
-        console.log(addR);
-        setSearchTerm(addR);
-        console.log(searchTerm);
-        
-        dispatch(addSearchTerm(searchTerm));
+        dispatch(addSearchTerm(addR));
         
         setSearchTerm('');
     }
