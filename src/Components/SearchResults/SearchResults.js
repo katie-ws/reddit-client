@@ -3,14 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import './SearchResults.css';
 import { getPopularPosts, selectPosts } from './SearchResultsSlice';
 import { Post } from '../Post/Post';
+import { selectSearchTerm } from '../SearchBar/searchTermSlice';
 
 export const SearchResults = () => {
 
     const dispatch = useDispatch();
-
+    const { searchTerm } = useSelector(selectSearchTerm);
+    
     useEffect(() => {
-        dispatch(getPopularPosts());
-    }, [dispatch]);
+        dispatch(getPopularPosts(searchTerm));
+    }, [dispatch, searchTerm]);
 
     const posts = useSelector(selectPosts);
 

@@ -2,8 +2,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getPopularPosts = createAsyncThunk(
     "redditPosts/getRedditPosts",
-    async () => {
-        const data = await fetch("https://www.reddit.com/r/popular.json");
+    async (searchTerm = '', thunkAPI) => {
+        const coreAPI = "https://www.reddit.com/";
+        if (searchTerm === '') {
+            searchTerm = "r/popular";
+        };
+        const url = `${coreAPI}${searchTerm}.json`;
+        const data = await fetch(url);
         const json = await data.json();
         return json.data.children.map((post) => post.data);
     }
