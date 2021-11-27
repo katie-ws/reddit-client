@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getSubReddits = createAsyncThunk(
     "subReddits/getSubReddits",
@@ -9,7 +8,6 @@ export const getSubReddits = createAsyncThunk(
         return json.data.children.map((subReddit) => subReddit.data);
     }
 );
-
 
 export const subRedditsSlice = createSlice({
     name: 'subReddits',
