@@ -16,7 +16,14 @@ export const Subreddit = (props) => {
             onClick={() => console.log(props.url)}
             key={props.index}
           >
-            <img className="iconImage" src={props.icon} alt="" />
+            <img 
+                className="iconImage" 
+                src={props.icon} 
+                alt=""
+                style={{ border: `3px solid ${props.color}` }}
+                onError={(event) => event.target.style.visibility = 'hidden'}
+                // onError={(event) => event.target.src = {props.altimg}}
+            />
             <p>{props.title}</p>
           </button>
         </li>

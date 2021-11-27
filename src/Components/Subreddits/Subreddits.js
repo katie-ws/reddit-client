@@ -23,9 +23,11 @@ export const Subreddits = () => {
                 {subReddits.map((subreddit, index) =>
                     <Subreddit
                         icon={subreddit.icon_img}
+                        altimg={subreddit.header_img}
                         title={subreddit.display_name}
                         index={index}
                         url={subreddit.url}
+                        color={subreddit.primary_color}
                     />
                 )}
             </ul>
