@@ -1,3 +1,32 @@
 .subreddit-button {
     border: none;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+    margin: 0.25rem 0;
+    display: flex;
+    width: 20rem;
+    /* justify-content: space-between; */
+    font-family: 'varela round', sans-serif;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.iconImage {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: 0.75rem;
+}
+
+/* li { 
+    display: flex;
+    width: 15rem;
+    font-family: 'varela round', sans-serif;
+    align-items: center;
+    font-size: 1rem;
+    
+}*/
+
+p {
+    margin-left: 2rem;
 }
