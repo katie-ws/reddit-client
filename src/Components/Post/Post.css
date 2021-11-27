@@ -24,8 +24,13 @@
 }
 
 .image-container {
-    overflow: hidden;
+    overflow-x: hidden;
     width: 100%;
+    object-fit: contain;
+}
+
+img {
+    max-width: 100%;
 }
 
 .post-author {
