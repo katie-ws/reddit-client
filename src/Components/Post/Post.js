@@ -4,17 +4,18 @@ import {
     TiArrowDownOutline,
     TiMessage
 } from 'react-icons/ti';
+import './Post.css';
  
 export const Post = (props) => {
     return (
         <ul>
-            <li>
+            <li className="reddit-post">
                 <TiArrowUpOutline />
                 {props.upvotes}
                 <TiArrowDownOutline />
-                {props.title}
+                <h3 className="post-title">{props.title}</h3>
                 <img src={props.image} />
-                {props.author}
+                <p className="post-author">{props.author}</p>
                 <TiMessage />
                 {props.num_comments}
             </li>
