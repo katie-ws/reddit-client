@@ -28,6 +28,7 @@
     font-family: 'varela round', sans-serif;
     align-items: center;
     font-size: 0.85rem;
+    cursor: pointer;
 }
 
 .iconImage {
@@ -39,6 +40,16 @@
 
 p {
     margin-left: 2rem;
+}
+
+p:hover {
+    color: blue;
+    background-color: lightblue;
+
+}
+
+li {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 800px) {
