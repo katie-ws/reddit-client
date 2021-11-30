@@ -12,23 +12,27 @@ export const SearchBar = () => {
         e.preventDefault();
         let addR = `/r/${searchTerm}`;
         dispatch(addSearchTerm(addR));
-        
         setSearchTerm('');
     }
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearchTerm(e.target.value);  
+    }
+
     return (
-        <div className="SearchBar">
-            <input
-                type='text'
-                placeholder="Search Reddit"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button
-                type='submit'
-                className="SearchButton"
-                onClick={handleSubmit}
-            >SEARCH</button>
-        </div>
-    )
+      <div className="SearchBar">
+        <form className="search" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search Reddit"
+            value={searchTerm}
+            onChange={handleChange}
+          />
+          <button type="submit" className="SearchButton" onClick={handleSubmit}>
+            SEARCH
+          </button>
+        </form>
+      </div>
+    );
 };
