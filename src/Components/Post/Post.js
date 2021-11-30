@@ -8,6 +8,7 @@ import moment from 'moment';
 import './Post.css';
  
 export const Post = (props) => {
+
     return (
         <ul>
             <li className="reddit-post">
@@ -25,10 +26,13 @@ export const Post = (props) => {
                         <span className="post-details">
                             <p className="post-author">{props.author}</p>
                             <p>{moment.unix(props.time).fromNow()}</p>
-                            <span>
+                            <button
+                                type="button"
+                                aria-label="Show comments"
+                            >
                                 <TiMessage />
                                 {props.num_comments}
-                            </span>
+                            </button>
                         </span>
                     </span>
                 </div>

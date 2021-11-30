@@ -32,7 +32,7 @@ export const Subreddits = () => {
                 className="iconImage"
                 src={subreddit.icon_img}
                 alt=""
-                style={{ border: `3px solid ${subreddit.color}` }}
+                style={{ border: `3px solid ${subreddit.primary_color}` }}
                 onError={(event) => (event.target.style.visibility = "hidden")}
                 // onError={(event) => event.target.src = {props.altimg}}
               />
