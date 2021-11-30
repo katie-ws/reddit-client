@@ -20,7 +20,7 @@ export const SearchResults = () => {
         <div className="SearchResults">
             <h2>Search Results</h2>
             <ul>
-                {posts.map((thread) => 
+                {posts.map((thread, index) => 
                     <Post 
                         title={thread.title}
                         upvotes={thread.ups}
@@ -28,6 +28,7 @@ export const SearchResults = () => {
                         author={thread.author}
                         time={thread.created_utc}
                         num_comments={thread.num_comments}
+                        key={index}
                     />
                 )}
             </ul>

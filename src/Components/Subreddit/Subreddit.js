@@ -1,20 +1,23 @@
 import React from 'react';
 import './Subreddit.css';
-
-/*const clickResponse = (e) => {
-    e.preventDefault();
-    // const urlSegment = e.target.id;
-    console.log(e.target.key);
-};*/
+import { useDispatch } from 'react-redux';
+import { addSearchTerm } from '../SearchBar/searchTermSlice';
 
 export const Subreddit = (props) => {
+  const dispatch = useDispatch;
+  const subRedditURL = props.url;
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(addSearchTerm('r/sheep'))
+  };
+
     return (
-        <li key={props.index}>
+        <li>
           <button
-            type="button"
-            className="subreddit-button"
-            onClick={() => console.log(props.url)}
-            key={props.index}
+          type="button"
+          className="subreddit-button"
+          onClick={handleClick} 
           >
             <img 
                 className="iconImage" 
