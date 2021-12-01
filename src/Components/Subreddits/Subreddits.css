@@ -20,15 +20,18 @@
 .subreddit-button {
     border: none;
     border-radius: 10px;
-    background-color: #f6f6f6;
+    background-color: inherit;
     margin: 0.25rem 0;
     display: flex;
     width: 20rem;
-    /* justify-content: space-between; */
     font-family: 'varela round', sans-serif;
     align-items: center;
     font-size: 0.85rem;
     cursor: pointer;
+}
+
+.subreddit-button:hover {
+    background-color: lightgrey;
 }
 
 .iconImage {
@@ -38,17 +41,11 @@
     margin-left: 0.75rem;
 }
 
-p {
+.subreddit-name {
     margin-left: 2rem;
 }
 
-p:hover {
-    color: blue;
-    background-color: lightblue;
-
-}
-
-li {
+.subreddit-list {
     cursor: pointer;
 }
 
