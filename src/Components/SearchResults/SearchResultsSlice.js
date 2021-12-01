@@ -19,9 +19,14 @@ export const searchResultsSlice = createSlice({
     initialState: {
         posts: [],
         isLoading: false,
-        hasError: false
+        hasError: false,
+        showComments: false
     },
-    reducers: {},
+    reducers: {
+        toggleShowComments: (state, action) => {
+            state.showComments = !state.showComments;
+        }
+    },
     extraReducers: {
         [getPopularPosts.pending]: (state, action) => {
             state.isLoading = true;
@@ -40,4 +45,6 @@ export const searchResultsSlice = createSlice({
 });
 
 export const selectPosts = (state) => state.posts.posts;
+export const selectShowComments = (state) => state.posts.showComments;
+export const {toggleShowComments} = searchResultsSlice.actions;
 export default searchResultsSlice.reducer;

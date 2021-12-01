@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { isCompositeComponentWithType } from 'react-dom/test-utils';
+
 
 export const getPostComments = createAsyncThunk(
     "postComments/getPostComments",
@@ -25,7 +25,7 @@ export const commentsSlice = createSlice({
             state.hasError = false;
         },
         [getPostComments.fulfilled]: (state, action) => {
-            state.postComments = action.payload;
+            state.comments = action.payload;
             state.isLoading = false;
             state.hasError = false;
         },
@@ -38,5 +38,5 @@ export const commentsSlice = createSlice({
 
 
 
-export const selectSubReddits = (state) => state.subReddits.subReddits;
-export default subRedditsSlice.reducer;
+export const selectComments = (state) => state.comments.comments;
+export default commentsSlice.reducer;

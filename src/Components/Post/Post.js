@@ -6,10 +6,31 @@ import {
 } from 'react-icons/ti';
 import moment from 'moment';
 import './Post.css';
+import { useDispatch, useSelector } from "react-redux";
+import { getPostComments } from "../Comments/CommentsSlice";
+import { selectComments } from "../Comments/CommentsSlice";
+import { toggleShowComments, selectShowComments } from "../SearchResults/SearchResultsSlice";
+
  
 export const Post = (props) => {
+    const dispatch = useDispatch();
+    const comments = useSelector(selectComments);
+    const showComments = useSelector(selectShowComments);
 
-    return (
+    const displayComments = () => {
+        if (comments[0] && showComments) {
+            console.log(showComments);
+            return comments[2].body;
+        }
+    }
+
+    const handleClick = () => {
+        
+        dispatch(getPostComments(props.permalink));
+        dispatch(toggleShowComments());
+    }
+
+     return (
         <ul>
             <li className="reddit-post">
                 <div className="upvotes-container">
@@ -29,12 +50,16 @@ export const Post = (props) => {
                             <button
                                 type="button"
                                 aria-label="Show comments"
+                                onClick={handleClick}
                             >
                                 <TiMessage />
                                 {props.num_comments}
+                                
                             </button>
                         </span>
                     </span>
+                    <p>{displayComments()}</p>
+                    {/* <p>{comments[0].body}</p> */}
                 </div>
                 
             </li>
