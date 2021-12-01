@@ -19,10 +19,25 @@ export const Post = (props) => {
 
     const displayComments = () => {
         if (comments[0] && showComments) {
-            console.log(showComments);
-            return comments[2].body;
+            if (props.name === comments[comments.length - 1].parent_id) {
+                return (
+                    <ul>
+                        {comments.map((comment, index) => {
+                            if (index < 5) 
+                            return (
+                                <li>
+                                    <p>{comment.author}</p>
+                                    <p>{comment.body}</p>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                )
+            }
         }
-    }
+    };
+    
+    // }
 
     const handleClick = () => {
         
@@ -58,7 +73,7 @@ export const Post = (props) => {
                             </button>
                         </span>
                     </span>
-                    <p>{displayComments()}</p>
+                     <p>{displayComments()}</p>
                     {/* <p>{comments[0].body}</p> */}
                 </div>
                 
