@@ -29,6 +29,7 @@ export const SearchResults = () => {
                         time={thread.created_utc}
                         num_comments={thread.num_comments}
                         key={index}
+                        permalink={thread.permalink}
                     />
                 )}
             </ul>
