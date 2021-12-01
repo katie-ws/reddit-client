@@ -22,7 +22,10 @@ export const Subreddits = () => {
       <h2>Subreddits</h2>
       <ul>
         {subReddits.map((subreddit) => (
-          <li key={subreddit.id}>
+          <li 
+            key={subreddit.id}
+            className="subreddit-list"
+        >
             <button
               type="button"
               className="subreddit-button"
@@ -36,7 +39,7 @@ export const Subreddits = () => {
                 onError={(event) => (event.target.style.visibility = "hidden")}
                 // onError={(event) => event.target.src = {props.altimg}}
               />
-              <p>{subreddit.display_name}</p>
+              <p className="subreddit-name">{subreddit.display_name}</p>
             </button>
           </li>
         ))}
