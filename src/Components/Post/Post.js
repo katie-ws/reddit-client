@@ -34,21 +34,19 @@ export const Post = (props) => {
     if (comments[0] && showComments) {
       if (props.name === comments[comments.length - 1].parent_id) {
         return (
-          <ul>
+          <div>
             {comments.map((comment, index) => {
               if (index < 5) {
                 return (
-                  <li key={index}>
                     <div className="commentContainer">
                         <p className="commentAuthor">{comment.author}</p>
                         <p className="commentBody">{comment.body}</p>
                     </div>
-                  </li>
                 );
               }
                 return <> </>;
             })}
-          </ul>
+          </div>
         )
       }
     }
