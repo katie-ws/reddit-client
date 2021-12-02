@@ -8,7 +8,14 @@ import moment from "moment";
 import Skeleton from 'react-loading-skeleton';
 import "./Post.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostComments, selectCommentsLoading, selectComments } from "../Comments/CommentsSlice";
+import {
+  getPostComments,
+  selectCommentsLoading,
+  selectComments,
+  selectCommentButtonId,
+  addCommentButtonId,
+  clearComments
+} from "../Comments/CommentsSlice";
 import {
   toggleShowComments,
   selectShowComments,
@@ -19,9 +26,10 @@ export const Post = (props) => {
   const comments = useSelector(selectComments);
   const showComments = useSelector(selectShowComments);
   const loadComments = useSelector(selectCommentsLoading);
+  const commentId = useSelector(selectCommentButtonId);
 
   const displayComments = () => {
-    if (loadComments && showComments) {
+    if (loadComments && showComments && commentId === props.title) {
       return (
         <div className="loading">
           <Skeleton />
@@ -34,35 +42,41 @@ export const Post = (props) => {
     if (comments[0] && showComments) {
       if (props.name === comments[comments.length - 1].parent_id) {
         return (
-          <ul>
+          <div>
             {comments.map((comment, index) => {
               if (index < 5) {
                 return (
-                  <li key={index}>
+                  
                     <div className="commentContainer">
                         <p className="commentAuthor">{comment.author}</p>
                         <p className="commentBody">{comment.body}</p>
                     </div>
-                  </li>
+                  
                 );
               }
                 return <> </>;
             })}
-          </ul>
+          </div>
         )
       }
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     dispatch(toggleShowComments());
+    dispatch(clearComments());
     if (!showComments)
-    {dispatch(getPostComments(props.permalink));}
+    {
+      dispatch(getPostComments(props.permalink));
+      dispatch(addCommentButtonId(e.currentTarget.id));
+    }
   };
+
+
 
   return (
     <ul>
-      <li className="reddit-post" key={props.index}>
+      <li className="reddit-post" key={props.ind}>
         <div className="upvotes-container">
           <TiArrowUpOutline className="upbutton" />
           {props.upvotes}
@@ -82,6 +96,7 @@ export const Post = (props) => {
                 aria-label="Show comments"
                 onClick={handleClick}
                 className="comments-button"
+                id={props.title}
               >
                 <TiMessage className="message-icon" />
                 {props.num_comments}

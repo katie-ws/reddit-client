@@ -16,9 +16,17 @@ export const commentsSlice = createSlice({
     initialState: {
         comments: [],
         isLoading: false,
-        hasError: false
+        hasError: false,
+        commentButtonId: ''
     },
-    reducers: {},
+    reducers: {
+        addCommentButtonId: (state, action) => {
+            state.commentButtonId = action.payload;
+        },
+        clearComments: (state, action) => {
+            state.comments = [];
+        }
+    },
     extraReducers: {
         [getPostComments.pending]: (state, action) => {
             state.isLoading = true;
@@ -39,4 +47,6 @@ export const commentsSlice = createSlice({
 
 export const selectCommentsLoading = (state) => state.comments.isLoading;
 export const selectComments = (state) => state.comments.comments;
+export const selectCommentButtonId = (state) => state.comments.commentButtonId;
+export const { addCommentButtonId, clearComments } = commentsSlice.actions;
 export default commentsSlice.reducer;
