@@ -18,6 +18,14 @@
     padding: 0.5rem 0 0 0.6rem;
 }
 
+.upbutton:hover {
+    color: rgb(35, 204, 35);
+}
+
+.downbutton:hover {
+    color: red;
+}
+
 .post-title {
     font-weight: bold;
     font-size: 1.2rem;
@@ -50,4 +58,34 @@ img {
     border-top: 1px solid grey;
     margin: 0.5rem 3rem;
     padding-top: 0.8rem;
+}
+
+.comments-button {
+    border: none;
+    background-color: inherit;
+}
+
+.message-icon:hover {
+    font-size: 1rem;
+    color: blue;
+}
+
+.commentContainer {
+    width: 90%;
+    word-wrap: break-word;
+    margin-top: 1rem;
+}
+
+.commentAuthor {
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.commentBody {
+    margin-bottom: 1rem;
+}
+
+.displayComments {
+    width: 100%;
 }

@@ -37,6 +37,6 @@ export const commentsSlice = createSlice({
 });
 
 
-
+export const selectCommentsLoading = (state) => state.comments.isLoading;
 export const selectComments = (state) => state.comments.comments;
 export default commentsSlice.reducer;

@@ -5,10 +5,10 @@ import {
   TiMessage,
 } from "react-icons/ti";
 import moment from "moment";
+import Skeleton from 'react-loading-skeleton';
 import "./Post.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostComments } from "../Comments/CommentsSlice";
-import { selectComments } from "../Comments/CommentsSlice";
+import { getPostComments, selectCommentsLoading, selectComments } from "../Comments/CommentsSlice";
 import {
   toggleShowComments,
   selectShowComments,
@@ -18,9 +18,20 @@ export const Post = (props) => {
   const dispatch = useDispatch();
   const comments = useSelector(selectComments);
   const showComments = useSelector(selectShowComments);
+  const loadComments = useSelector(selectCommentsLoading);
 
   const displayComments = () => {
     if (comments[0] && showComments) {
+        if(loadComments) {
+            return (
+                <div>
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                </div>
+            )
+        };
+
       if (props.name === comments[comments.length - 1].parent_id) {
         return (
           <ul>
@@ -28,8 +39,10 @@ export const Post = (props) => {
               if (index < 5) {
                 return (
                   <li key={index}>
-                    <p>{comment.author}</p>
-                    <p>{comment.body}</p>
+                    <div className="commentContainer">
+                        <p className="commentAuthor">{comment.author}</p>
+                        <p className="commentBody">{comment.body}</p>
+                    </div>
                   </li>
                 );
               }
@@ -41,8 +54,6 @@ export const Post = (props) => {
     }
   };
 
-  // }
-
   const handleClick = () => {
     dispatch(getPostComments(props.permalink));
     dispatch(toggleShowComments());
@@ -52,9 +63,9 @@ export const Post = (props) => {
     <ul>
       <li className="reddit-post">
         <div className="upvotes-container">
-          <TiArrowUpOutline />
+          <TiArrowUpOutline className="upbutton" />
           {props.upvotes}
-          <TiArrowDownOutline />
+          <TiArrowDownOutline className="downbutton" />
         </div>
         <div className="post-container">
           <h3 className="post-title">{props.title}</h3>
@@ -69,14 +80,14 @@ export const Post = (props) => {
                 type="button"
                 aria-label="Show comments"
                 onClick={handleClick}
+                className="comments-button"
               >
-                <TiMessage />
+                <TiMessage className="message-icon" />
                 {props.num_comments}
               </button>
             </span>
           </span>
-          <p>{displayComments()}</p>
-          {/* <p>{comments[0].body}</p> */}
+          <p className="displayComments">{displayComments()}</p>
         </div>
       </li>
     </ul>
