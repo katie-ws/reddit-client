@@ -21,17 +21,18 @@ export const Post = (props) => {
   const loadComments = useSelector(selectCommentsLoading);
 
   const displayComments = () => {
+    if (loadComments && showComments) {
+      return (
+        <div>
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <p>loading.........</p>
+        </div>
+      )
+    };
+        
     if (comments[0] && showComments) {
-        if(loadComments) {
-            return (
-                <div>
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                </div>
-            )
-        };
-
       if (props.name === comments[comments.length - 1].parent_id) {
         return (
           <ul>
@@ -55,8 +56,9 @@ export const Post = (props) => {
   };
 
   const handleClick = () => {
-    dispatch(getPostComments(props.permalink));
     dispatch(toggleShowComments());
+    if (!showComments)
+    {dispatch(getPostComments(props.permalink));}
   };
 
   return (
