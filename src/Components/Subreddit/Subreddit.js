@@ -13,11 +13,12 @@ export const Subreddit = (props) => {
   };
 
     return (
-        <li>
+        <div>
           <button
           type="button"
           className="subreddit-button"
           onClick={handleClick} 
+          aria-label="Subreddit"
           >
             <img 
                 className="iconImage" 
@@ -29,6 +30,6 @@ export const Subreddit = (props) => {
             />
             <p>{props.title}</p>
           </button>
-        </li>
+        </div>
     );
 };

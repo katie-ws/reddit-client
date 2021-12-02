@@ -19,7 +19,7 @@ export const SearchResults = () => {
     return (
         <div className="SearchResults">
             <h2>Search Results</h2>
-            <ul>
+            <div>
                 {posts.map((thread, index) => 
                     <Post 
                         title={thread.title}
@@ -33,7 +33,7 @@ export const SearchResults = () => {
                         name={thread.name}
                     />
                 )}
-            </ul>
+            </div>
         </div>
     )
 };

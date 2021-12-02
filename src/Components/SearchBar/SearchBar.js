@@ -28,8 +28,14 @@ export const SearchBar = () => {
             placeholder="Search Reddit"
             value={searchTerm}
             onChange={handleChange}
+            aria-label="Search bar"
           />
-          <button type="submit" className="SearchButton" onClick={handleSubmit}>
+          <button 
+            type="submit" 
+            className="SearchButton" 
+            onClick={handleSubmit}
+            aria-label="Search button"
+          >
             SEARCH
           </button>
         </form>
