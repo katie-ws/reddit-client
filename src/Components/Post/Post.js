@@ -61,7 +61,7 @@ export const Post = (props) => {
 
   return (
     <ul>
-      <li className="reddit-post">
+      <li className="reddit-post" key={props.index}>
         <div className="upvotes-container">
           <TiArrowUpOutline className="upbutton" />
           {props.upvotes}
@@ -87,7 +87,7 @@ export const Post = (props) => {
               </button>
             </span>
           </span>
-          <p className="displayComments">{displayComments()}</p>
+          {displayComments()}
         </div>
       </li>
     </ul>
