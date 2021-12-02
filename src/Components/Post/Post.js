@@ -61,36 +61,34 @@ export const Post = (props) => {
   };
 
   return (
-    <ul>
-      <li className="reddit-post" key={props.index}>
+    <div className="reddit-post" key={props.index}>
         <div className="upvotes-container">
-          <TiArrowUpOutline className="upbutton" />
-          {props.upvotes}
-          <TiArrowDownOutline className="downbutton" />
+            <TiArrowUpOutline className="upbutton" />
+            {props.upvotes}
+            <TiArrowDownOutline className="downbutton" />
         </div>
         <div className="post-container">
-          <h3 className="post-title">{props.title}</h3>
-          <div className="image-container">
-            <img src={props.image} alt="" />
-          </div>
-          <span className="post-details-container">
+            <h3 className="post-title">{props.title}</h3>
+            <div className="image-container">
+                <img src={props.image} alt="" />
+            </div>
+            <span className="post-details-container">
             <span className="post-details">
-              <p className="post-author">{props.author}</p>
-              <p>{moment.unix(props.time).fromNow()}</p>
-              <button
+                <p className="post-author">{props.author}</p>
+                <p>{moment.unix(props.time).fromNow()}</p>
+                <button
                 type="button"
                 aria-label="Show comments"
                 onClick={handleClick}
                 className="comments-button"
-              >
+                >
                 <TiMessage className="message-icon" />
                 {props.num_comments}
-              </button>
+                </button>
             </span>
-          </span>
-          {displayComments()}
+            </span>
+            {displayComments()}
         </div>
-      </li>
-    </ul>
+    </div>
   );
 };

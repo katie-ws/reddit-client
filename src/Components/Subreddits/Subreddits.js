@@ -30,6 +30,7 @@ export const Subreddits = () => {
               type="button"
               className="subreddit-button"
               onClick={() => dispatch(addSearchTerm(subreddit.url))}
+              aria-label="subreddits"
             >
               <img
                 className="iconImage"
@@ -37,7 +38,6 @@ export const Subreddits = () => {
                 alt=""
                 style={{ border: `3px solid ${subreddit.primary_color}` }}
                 onError={(event) => (event.target.style.visibility = "hidden")}
-                // onError={(event) => event.target.src = {props.altimg}}
               />
               <p className="subreddit-name">{subreddit.display_name}</p>
             </button>
