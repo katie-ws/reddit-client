@@ -23,11 +23,10 @@ export const Post = (props) => {
   const displayComments = () => {
     if (loadComments && showComments) {
       return (
-        <div>
+        <div className="loading">
           <Skeleton />
+          <p className="loadingP">Loading Comments....</p>
           <Skeleton />
-          <Skeleton />
-          <p>loading.........</p>
         </div>
       )
     };
