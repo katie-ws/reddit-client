@@ -17,6 +17,7 @@
 
 ## Technologies Used
 - React & Redux
+- Moment, Skeleton & React Icon libraries
 - Reddit API (Documentation [here](https://www.reddit.com/dev/api/)).
 
 ## Features
