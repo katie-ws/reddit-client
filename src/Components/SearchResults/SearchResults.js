@@ -28,7 +28,7 @@ export const SearchResults = () => {
                         author={thread.author}
                         time={thread.created_utc}
                         num_comments={thread.num_comments}
-                        key={index}
+                        ind={index}
                         permalink={thread.permalink}
                         name={thread.name}
                     />

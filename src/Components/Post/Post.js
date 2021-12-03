@@ -8,7 +8,14 @@ import moment from "moment";
 import Skeleton from 'react-loading-skeleton';
 import "./Post.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostComments, selectCommentsLoading, selectComments } from "../Comments/CommentsSlice";
+import {
+  getPostComments,
+  selectCommentsLoading,
+  selectComments,
+  selectCommentButtonId,
+  addCommentButtonId,
+  clearComments
+} from "../Comments/CommentsSlice";
 import {
   toggleShowComments,
   selectShowComments,
@@ -19,9 +26,10 @@ export const Post = (props) => {
   const comments = useSelector(selectComments);
   const showComments = useSelector(selectShowComments);
   const loadComments = useSelector(selectCommentsLoading);
+  const commentId = useSelector(selectCommentButtonId);
 
   const displayComments = () => {
-    if (loadComments && showComments) {
+    if (loadComments && showComments && commentId === props.title) {
       return (
         <div className="loading">
           <Skeleton />
@@ -52,11 +60,17 @@ export const Post = (props) => {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     dispatch(toggleShowComments());
+    dispatch(clearComments());
     if (!showComments)
-    {dispatch(getPostComments(props.permalink));}
+    {
+      dispatch(getPostComments(props.permalink));
+      dispatch(addCommentButtonId(e.currentTarget.id));
+    }
   };
+
+
 
   return (
     <div className="reddit-post" key={props.index}>
@@ -79,7 +93,8 @@ export const Post = (props) => {
                 aria-label="Show comments"
                 onClick={handleClick}
                 className="comments-button"
-                >
+                id={props.title}
+              >
                 <TiMessage className="message-icon" />
                 {props.num_comments}
                 </button>
