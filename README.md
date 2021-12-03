@@ -14,6 +14,7 @@
 ## General Information
 - Using the Reddit API, this mini app displays subreddit & reddit data. It has search functionality and is able to display comments.
 - The project was undertaken as a first attempt to build a React/Redux app from the ground up.
+- Working version of the app can be viewed on [Netlify](https://reddit-mini-app.netlify.app/)
 
 ## Technologies Used
 - React & Redux
