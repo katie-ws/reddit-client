@@ -42,11 +42,11 @@ export const Post = (props) => {
     if (comments[0] && showComments) {
       if (props.name === comments[comments.length - 1].parent_id) {
         return (
-          <div>
+          <>
             {comments.map((comment, index) => {
               if (index < 5) {
                 return (
-                    <div className="commentContainer">
+                    <div className="commentContainer" key={index}>
                         <p className="commentAuthor">{comment.author}</p>
                         <p className="commentBody">{comment.body}</p>
                     </div>
@@ -54,7 +54,7 @@ export const Post = (props) => {
               }
                 return <> </>;
             })}
-          </div>
+          </>
         )
       }
     }
@@ -73,7 +73,7 @@ export const Post = (props) => {
 
 
   return (
-    <div className="reddit-post" key={props.index}>
+    <div className="reddit-post" key={props.ind}>
         <div className="upvotes-container">
             <TiArrowUpOutline className="upbutton" />
             {props.upvotes}

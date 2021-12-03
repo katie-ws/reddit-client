@@ -19,7 +19,7 @@ export const SearchResults = () => {
     return (
         <div className="SearchResults">
             <h2>Search Results</h2>
-            <div>
+            
                 {posts.map((thread, index) => 
                     <Post 
                         title={thread.title}
@@ -31,9 +31,10 @@ export const SearchResults = () => {
                         ind={index}
                         permalink={thread.permalink}
                         name={thread.name}
+                        key={thread.title}
                     />
                 )}
-            </div>
+        
         </div>
     )
 };
