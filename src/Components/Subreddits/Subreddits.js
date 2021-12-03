@@ -14,9 +14,6 @@ export const Subreddits = () => {
 
   const subReddits = useSelector(selectSubReddits);
 
-  // console.log(subReddits);
-  // console.log(subReddits[0].url);
-
   return (
     <div className="Subreddits">
       <h2>Subreddits</h2>

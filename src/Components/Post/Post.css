@@ -9,6 +9,7 @@
 
 .post-container {
     width: 100%;
+    max-width: 90%;
 }
 
 .upvotes-container {
@@ -29,6 +30,7 @@
 .post-title {
     font-weight: bold;
     font-size: 1.2rem;
+    word-wrap: break-word;
 }
 
 .image-container {
@@ -70,10 +72,14 @@ img {
     color: blue;
 }
 
+.comment-container {
+    width: 100%;
+}
+
 .commentContainer {
     width: 90%;
     word-wrap: break-word;
-    margin-top: 1rem;
+    margin: 1rem auto 0;
 }
 
 .commentAuthor {
