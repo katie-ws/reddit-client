@@ -100,7 +100,7 @@ export const Post = (props) => {
                 </button>
             </span>
             </span>
-            {displayComments()}
+            <div className="comment-container">{displayComments()}</div>
         </div>
     </div>
   );
